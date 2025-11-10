@@ -74,8 +74,8 @@ bash netease-music.sh all <playlist_id>
 * `<playlist_id>` 可从网易云歌单链接获取，例如：
 
   ```
-  链接: https://music.163.com/#/playlist?app_version=9.3.95&id=123456789&userid=1111&dlt=1111&creatorId=11111
-  歌单 ID 即为链接中的 id 参数: 123456789
+  链接: https://music.163.com/#/playlist?id=919939187
+  歌单 ID 即为链接中的 id 参数: 919939187
   ```
 
 * 会自动：
