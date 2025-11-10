@@ -7,7 +7,8 @@
 #   bash netease-music.sh all <playlist_id>      # 一条命令完成获取详情 + 下载
 # 依赖: curl、jq
 
-# --- 配置 ---
+# --- API 配置 ---
+PLAYLIST_API="https://music.163.com/api/v6/playlist/detail?id="
 DETAIL_API="https://music.163.com/api/song/detail/?ids="
 URL_API="https://music-api.gdstudio.xyz/api.php?types=url&source=netease&id="
 LYRIC_API="https://music-api.gdstudio.xyz/api.php?types=lyric&source=netease&id="
@@ -44,7 +45,7 @@ get_detail() {
     PLAYLIST_ID="$2"
 
     echo "🔍 获取歌单 ID: $PLAYLIST_ID 的歌曲ID..."
-    playlist_json=$(curl -s -L -H "User-Agent: Mozilla/5.0" "https://music.163.com/api/v6/playlist/detail?id=${PLAYLIST_ID}")
+    playlist_json=$(curl -s -L -H "User-Agent: Mozilla/5.0" "${PLAYLIST_API}${PLAYLIST_ID}")
 
     code=$(echo "$playlist_json" | jq -r '.code // empty')
     if [ "$code" != "200" ]; then
